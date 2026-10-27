@@ -33,6 +33,13 @@ jobs:
       - name: Preparar dependencias
         run: flutter pub get
 
+      - name: Verificar versión de Gradle
+        run: |
+          cat android/gradle/wrapper/gradle-wrapper.properties
+          cd android
+          chmod +x gradlew
+          ./gradlew --version
+
       - name: Compilar APK
         run: flutter build apk --release
 
